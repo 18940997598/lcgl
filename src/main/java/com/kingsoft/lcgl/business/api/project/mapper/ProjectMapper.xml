@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kingsoft.lcgl.business.api.project.mapper.ProjectMapper">
+
+    <resultMap id="testMap" type="com.kingsoft.lcgl.business.api.common.dto.DepartmentDto">
+    </resultMap>
+
+    <insert id="addProject"  useGeneratedKeys="true" keyProperty="id" parameterType="com.kingsoft.lcgl.business.api.project.dto.NewProjectRequest">
+         INSERT INTO project (
+	      project_name,
+	      start_date,
+          end_date,
+          project_describe,
+          department_id,
+          document_address
+          )
+        VALUES
+	    (#{name}, #{startDate}, #{endDate}, #{describe}, #{deparementIds}, #{documentAddress})
+    </insert>
+
+    <insert id="addTask" >
+        INSERT INTO project_task(task_name,start_time_plan,end_time_plan,department_id,user_id,project_id,notes)
+        VALUES
+        <foreach collection="taskList" item="item" index="index" separator=",">
+            (
+            #{item.taskName},#{item.startTime},#{item.engTime},#{item.departmentId},#{item.userId},#{projectId},#{item.describe}
+            )
+        </foreach>
+    </insert>
+
+
+</mapper>

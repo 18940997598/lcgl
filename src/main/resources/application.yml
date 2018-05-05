@@ -1,0 +1,41 @@
+c3p0:
+    local:
+        driverClass: com.mysql.jdbc.Driver
+        initialPoolSize: 1
+        minPoolSize: 1
+        maxPoolSize: 100
+        maxIdleTime: 180
+        acquireIncrement: 5
+        idleConnectionTestPeriod: 120
+        jdbcUrl: jdbc:mysql://123.206.67.214:3306/process_management?characterEncoding=utf8
+        username: root
+        password: vywM0LKdtExC
+email:
+    user: 18940997598@163.com
+    pwd: Yangkang153829
+    hostName: smtp.163.com
+    fromAdress: 18940997598@163.com
+#    邮件主题配置，注意：内容与key 之间的顺序对应  改枚举
+    subject: 注册验证邮件,任务通知邮件
+    subjectKey: REGIST,NOTICE
+jedis:
+    maxTotal: 10000
+    maxIdle: 5000
+    maxWaitMillis: 1000
+    testOnBorrow: true
+    testOnReturn: true
+    timeout: 1000
+    host: 123.206.67.214
+    port: 6379
+    instanceName: instance1
+
+timeout:
+    tokenTimeout: 120
+    refreshTokenTimeout: 2592000
+    identifyCodeTimeout: 300
+
+
+
+
+
+

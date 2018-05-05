@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kingsoft.lcgl.business.api.common.mapper.CommonMapper">
+
+    <select id="getDepartments" resultType="com.kingsoft.lcgl.business.api.common.dto.DepartmentDto">
+        SELECT id,department_name AS name,department_introduce AS introduce  FROM department
+    </select>
+
+    <select id="getPersons" resultType="com.kingsoft.lcgl.business.api.common.dto.PersonDto">
+       SELECT id,name,mail FROM `user` WHERE department_id = #{departmentId}
+    </select>
+
+    <select id="getTaskName" resultType="com.kingsoft.lcgl.business.api.common.dto.TaskDto">
+        SELECT id,name FROM task_name
+    </select>
+</mapper>
